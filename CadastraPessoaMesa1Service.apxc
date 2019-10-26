@@ -1,0 +1,39 @@
+public class CadastraPessoaMesa1Service {
+
+    public string cadastraPessoaMesa1(ConsultaPessoaMesa1 pessoaMesa1)
+    {
+        Callout_Configuration__c config = Callout_Configuration__c.getInstance('Mesa1');
+        CalloutValidaCadastroMesa1 callout = new CalloutValidaCadastroMesa1(config, 
+                       pessoaMesa1.Nome, pessoaMesa1.Sobrenome, pessoaMesa1.CPF, pessoaMesa1.Telefone);
+        
+        CalloutService service = new CalloutService(callout);
+
+        try
+        {
+            return (string) service.doCallout();
+        }
+        catch(Exception e)
+        {
+            return(e.getMessage());
+        }
+    }
+}
+
+/*
+ public string validaCPF(ConsultaCPFModels cpfModel)
+    {
+        Callout_Configuration__c config = Callout_Configuration__c.getInstance('validaCPF');
+        CalloutValidaCPF callout = new CalloutValidaCPF(config, cpfModel.cpf);
+        
+        CalloutService service = new CalloutService(callout);
+
+        try
+        {
+            return (string) service.doCallout();
+        }
+        catch(Exception e)
+        {
+            return(e.getMessage());
+        }
+    }
+*/
