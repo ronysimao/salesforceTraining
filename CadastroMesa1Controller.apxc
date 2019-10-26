@@ -1,0 +1,8 @@
+public class CadastroMesa1Controller {
+	
+    @AuraEnabled
+    public static string realizaCallout(String PessoaMesa1)
+    {
+        return 'êxito';
+    }
+}
