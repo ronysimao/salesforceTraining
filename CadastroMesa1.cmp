@@ -1,0 +1,38 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+	
+    <aura:attribute name="request" type="String" />
+    <aura:attribute name="response" type="String" />
+    
+    <lightning:card>
+        <aura:set attribute="title">
+            <span class="slds-text-heading_large">Cadastro de Cliente</span>
+        </aura:set>
+        
+        <div class="slds-form-element__control">
+            
+			<!-- -->
+            <div class="slds-m-around_x-small">
+                <lightning:textarea name="request" value="{!v.request}" 
+                                    label="Nome:"/>
+            </div>   
+            <div class="slds-m-around_x-small">
+                <lightning:textarea name="request" value="{!v.request}" 
+                                    label="Sobrenome:"/>  
+            </div>   
+            <div class="slds-m-around_x-small">
+                <lightning:textarea name="request" value="{!v.request}" 
+                                    label="CPF:"/>  
+            </div>   
+            <div class="slds-m-around_x-small">
+                <lightning:textarea name="request" value="{!v.request}" 
+                                    label="Telefone:"/>  
+            </div>
+        </div>
+
+        
+        <lightning:button variant="brand" label="Realizar callout" title="Cadastra Mesa1" 
+                                  onclick="{!c.doCallout}" />
+        
+    </lightning:card>
+    
+</aura:component>
