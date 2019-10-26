@@ -1,6 +1,11 @@
-<aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" 
+                Controller="CadastroMesa1Controller">
 	
-    <aura:attribute name="request" type="String" />
+    <aura:attribute name="nome" type="String" />
+    <aura:attribute name="sobrenome" type="String" />
+    <aura:attribute name="cpf" type="String" />
+    <aura:attribute name="telefone" type="String" />
+    
     <aura:attribute name="response" type="String" />
     
     <lightning:card>
@@ -10,28 +15,32 @@
         
         <div class="slds-form-element__control">
             
-			<!-- -->
-            <div class="slds-m-around_x-small">
-                <lightning:textarea name="request" value="{!v.request}" 
+			<div class="slds-m-around_x-small">
+                <lightning:textarea name="nome" value="{!v.nome}" 
                                     label="Nome:"/>
             </div>   
             <div class="slds-m-around_x-small">
-                <lightning:textarea name="request" value="{!v.request}" 
+                <lightning:textarea name="sobrenome" value="{!v.sobrenome}" 
                                     label="Sobrenome:"/>  
             </div>   
             <div class="slds-m-around_x-small">
-                <lightning:textarea name="request" value="{!v.request}" 
+                <lightning:textarea name="cpf" value="{!v.cpf}" 
                                     label="CPF:"/>  
             </div>   
             <div class="slds-m-around_x-small">
-                <lightning:textarea name="request" value="{!v.request}" 
+                <lightning:textarea name="telefone" value="{!v.telefone}" 
                                     label="Telefone:"/>  
             </div>
         </div>
 
         
-        <lightning:button variant="brand" label="Realizar callout" title="Cadastra Mesa1" 
+        <lightning:button variant="brand" label="Cadastrar" title="Cadastra Mesa1" 
                                   onclick="{!c.doCallout}" />
+        
+        <div class="slds-m-around_x-small">
+            <lightning:textarea name="response" readonly="true" 
+                                value="{!v.response}" label="Response:"/>
+        </div>
         
     </lightning:card>
     
