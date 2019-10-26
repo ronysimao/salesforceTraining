@@ -1,0 +1,66 @@
+public class CalloutValidaCadastroMesa1 extends CalloutContract{
+
+    public string Nome {get; set;}
+    public string Sobrenome {get; set;}
+    public string CPF {get; set;}
+    public string Telefone {get; set;}
+    
+    public CalloutValidaCadastroMesa1(Callout_Configuration__c config, string pmNome, string pmSobrenome, string pmCPF, string pmTelefone)
+    {
+        super(config);
+        this.Nome = pmNome;
+        this.Sobrenome = pmSobrenome;
+        this.CPF = pmCPF;
+        this.Telefone = pmTelefone;
+    }
+    
+    public override string getEndPoint()
+    {
+        system.debug('Nome:' + this.Nome);
+        system.debug('Sobrenome:' + this.Sobrenome);
+		system.debug('CPF:' + this.CPF);
+        system.debug('Telefone:' + this.Telefone);
+        return configuration.Endpoint__c + '/' + this.Nome + '/' + this.Sobrenome + '/' + this.CPF + '/' + this.Telefone;
+    }
+
+    public override Object getReturn(HttpResponse response)
+    {
+        return (string) response.getBody();
+    }
+    
+    public override void setHeader(HttpRequest request)
+    {
+        request.setHeader('Authorization','Bearer 00D41000002IZZC!AQ0AQJf14MqYxbCphPLCr3aIrwRGUJ69Znh64nonrjnAfAL9nm3hfOr2tBKe469whUS7.XQBMyFtBqfOFNgjNmUIwxC_y5_0');
+    }
+}
+
+/*
+
+public class CalloutValidaCPF extends CalloutContract
+{
+    public string CPF {get; set;}
+    
+    public CalloutValidaCPF(Callout_Configuration__c config, string clieCPFnte)
+    {
+        super(config);
+        this.CPF = clieCPFnte;
+    }
+
+    public override string getEndPoint()
+    {
+        system.debug('CPF:' + this.CPF);
+        return configuration.Endpoint__c + '/' + this.CPF;
+    }
+    
+    public override Object getReturn(HttpResponse response)
+    {
+        return (string) response.getBody();
+    }
+    
+    public override void setHeader(HttpRequest request)
+    {
+        request.setHeader('Authorization','Bearer 00D41000002IZZC!AQ0AQJf14MqYxbCphPLCr3aIrwRGUJ69Znh64nonrjnAfAL9nm3hfOr2tBKe469whUS7.XQBMyFtBqfOFNgjNmUIwxC_y5_0');
+    }
+}
+
+*/
